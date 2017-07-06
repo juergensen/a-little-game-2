@@ -17,7 +17,9 @@ export default class extends Phaser.Sprite {
         else this.body.setZeroRotation();
         if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) this.body.thrust(400);
         else if(this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN)) this.body.reverse(400);
-        if(this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) this.weapon.fire();
+        if(this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+          if(this.weapon.fire() != null) this.game.sounds.play('shot');
+        };
 
     }
 }

@@ -16,6 +16,10 @@ export default class extends Phaser.State {
       this.load.image('player', 'assets/images/player_space_ship.png');
       this.load.image('stars', 'assets/misc/starfield.jpg');
       this.load.image('missile', 'assets/images/shot.png');
+      this.load.physics("sprite_physics", "assets/sprite_physics.json");
+      this.load.audio('sounds', [
+        'assets/sounds/shot_sound.ogg'
+      ]);
   }
 
   create () {

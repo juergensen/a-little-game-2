@@ -4,7 +4,7 @@ export default class extends Phaser.Sprite {
     constructor ({ game, x, y, weapon }) {
         super(game, x, y, 'player');
         this.anchor.setTo(0.5);
-        this.weapon = this.game.add.weapon(30, 'missile');
+        this.weapon = this.game.add.weapon(-1, 'missile');
         this.weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
         this.weapon.bulletSpeed = 600;
         this.weapon.fireRate = 100;

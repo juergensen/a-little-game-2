@@ -8,8 +8,9 @@ export default class extends Phaser.Sprite {
     this.weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
     this.weapon.bulletSpeed = 600;
     this.weapon.fireRate = 100;
-    this.weapon.trackSprite(this, 0, -30, true);
+    this.weapon.trackSprite(this, 0, 0, true);
     this.weapon.trackRotation = false;
+    this.weapon.onFire.add(()=>this.game.sounds.play('shot'),this);
   }
   update() {
     if(this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) this.body.rotateLeft(100);
@@ -19,7 +20,7 @@ export default class extends Phaser.Sprite {
     else if(this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN)) this.body.reverse(400);
     if(this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
       this.weapon.fireAngle = this.weapon.trackedSprite.angle - 90;
-      if(this.weapon.fire() != null) this.game.sounds.play('shot');
+      this.weapon.fire();
     };
   }
 }
